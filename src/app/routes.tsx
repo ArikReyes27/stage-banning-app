@@ -8,6 +8,8 @@ import { SessionSetupPage } from '../pages/SessionSetupPage'
 import { TournamentAdminPage } from '../pages/TournamentAdminPage'
 import { TournamentPresentationPage } from '../pages/TournamentPresentationPage'
 import { MatchVSPage } from '../pages/MatchVSPage'
+import { PublicScreenPage } from '../pages/PublicScreenPage'
+import { isAdminHost, publicLanding } from '../lib/accessMode'
 import { RegistrationPage } from '../pages/RegistrationPage'
 import { StandingsPage } from '../pages/StandingsPage'
 import type { MatchId } from '../types/tournament'
@@ -24,6 +26,7 @@ type AppRoute =
   | { name: 'match-vs'; matchId: MatchId; presentation: boolean }
   | { name: 'tournament-admin' }
   | { name: 'tournament-presentation' }
+  | { name: 'public-screen' }
   | { name: 'home' }
   | { name: 'ruleset-new' }
   | { name: 'ruleset-detail'; rulesetId: string }
@@ -31,6 +34,8 @@ type AppRoute =
   | { name: 'session-setup'; rulesetId: string }
 
 const readRoute = (): AppRoute => {
+  // UI-only restriction: hosts other than loopback only get the public stage-ban experience.
+  if (!isAdminHost(window.location.hostname) && publicLanding(window.location.pathname)) window.history.replaceState({}, '', '/')
   const path = window.location.pathname.replace(/\/+$/, '') || '/'
   if (path === '/account') return { name: 'account' }
   if (path === '/my-tournaments' && import.meta.env.MODE === 'auth-tests' && import.meta.env.DEV) return { name: 'my-tournaments' }
@@ -40,6 +45,7 @@ const readRoute = (): AppRoute => {
   if (matchRoute) return { name: 'match-vs', matchId: matchRoute[1] as MatchId, presentation: !!matchRoute[2] }
   if (path === '/tournament') return { name: 'tournament-admin' }
   if (path === '/tournament/presentation') return { name: 'tournament-presentation' }
+  if (path === '/tournament/screen') return { name: 'public-screen' }
   const sessionSetupMatch = path.match(/^\/session\/setup\/([^/]+)$/)
   const rulesetEditMatch = path.match(/^\/rulesets\/([^/]+)\/edit$/)
   const rulesetMatch = path.match(/^\/rulesets\/([^/]+)$/)
@@ -100,6 +106,7 @@ export function AppRoutes() {
     if (route.name === 'match-vs') return <MatchVSPage key={routeKey} matchId={route.matchId} presentation={route.presentation} />
     if (route.name === 'tournament-admin') return <TournamentAdminPage />
     if (route.name === 'tournament-presentation') return <TournamentPresentationPage />
+    if (route.name === 'public-screen') return <PublicScreenPage />
     if (route.name === 'ruleset-detail') {
       return <RulesetDetailPage rulesetId={route.rulesetId} />
     }
@@ -119,7 +126,7 @@ export function AppRoutes() {
     return <HomePage />
   })()
 
-  const scoped = ['registration', 'tournament-admin', 'tournament-presentation', 'match-vs', 'standings'].includes(route.name)
+  const scoped = ['registration', 'tournament-admin', 'tournament-presentation', 'public-screen', 'match-vs', 'standings'].includes(route.name)
   const content = scoped && import.meta.env.MODE === 'auth-tests' && import.meta.env.DEV
     ? <TournamentWorkspace key={workspaceId ?? 'legacy'} id={workspaceId}>{page}</TournamentWorkspace> : page
   return (

@@ -1,0 +1,2990 @@
+{
+ "generatedBy": "tests/helpers/phase15-6-vectors.mjs",
+ "engine": "src/utils (schemaVersion 2)",
+ "structures": [
+  {
+   "n": 2,
+   "size": 2,
+   "matches": 3,
+   "winners": 1,
+   "losers": 0,
+   "ids": "W1,GF,RESET",
+   "structure": [
+    {
+     "id": "W1",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Final",
+     "sources": [
+      {
+       "seed": 0
+      },
+      {
+       "seed": 1
+      }
+     ]
+    },
+    {
+     "id": "GF",
+     "section": "finals",
+     "column": 0,
+     "round": "Grand Final",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W1",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "RESET",
+     "section": "finals",
+     "column": 1,
+     "round": "Grand Final Reset",
+     "sources": [
+      {
+       "match": "GF",
+       "outcome": "loser"
+      },
+      {
+       "match": "GF",
+       "outcome": "winner"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "size": 4,
+   "matches": 7,
+   "winners": 3,
+   "losers": 2,
+   "ids": "W1,W2,W3,L1,L2,GF,RESET",
+   "structure": [
+    {
+     "id": "W1",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "seed": 0
+      },
+      {
+       "seed": 1
+      }
+     ]
+    },
+    {
+     "id": "W2",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "seed": 2
+      },
+      {
+       "seed": 3
+      }
+     ]
+    },
+    {
+     "id": "W3",
+     "section": "winners",
+     "column": 1,
+     "round": "Winners Final",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W2",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "L1",
+     "section": "losers",
+     "column": 0,
+     "round": "Losers Round 1",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "loser"
+      },
+      {
+       "match": "W2",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L2",
+     "section": "losers",
+     "column": 1,
+     "round": "Losers Final",
+     "sources": [
+      {
+       "match": "L1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W3",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "GF",
+     "section": "finals",
+     "column": 0,
+     "round": "Grand Final",
+     "sources": [
+      {
+       "match": "W3",
+       "outcome": "winner"
+      },
+      {
+       "match": "L2",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "RESET",
+     "section": "finals",
+     "column": 1,
+     "round": "Grand Final Reset",
+     "sources": [
+      {
+       "match": "GF",
+       "outcome": "loser"
+      },
+      {
+       "match": "GF",
+       "outcome": "winner"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "size": 4,
+   "matches": 7,
+   "winners": 3,
+   "losers": 2,
+   "ids": "W1,W2,W3,L1,L2,GF,RESET",
+   "structure": [
+    {
+     "id": "W1",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "seed": 0
+      },
+      {
+       "seed": 1
+      }
+     ]
+    },
+    {
+     "id": "W2",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "seed": 2
+      },
+      {
+       "seed": 3
+      }
+     ]
+    },
+    {
+     "id": "W3",
+     "section": "winners",
+     "column": 1,
+     "round": "Winners Final",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W2",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "L1",
+     "section": "losers",
+     "column": 0,
+     "round": "Losers Round 1",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "loser"
+      },
+      {
+       "match": "W2",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L2",
+     "section": "losers",
+     "column": 1,
+     "round": "Losers Final",
+     "sources": [
+      {
+       "match": "L1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W3",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "GF",
+     "section": "finals",
+     "column": 0,
+     "round": "Grand Final",
+     "sources": [
+      {
+       "match": "W3",
+       "outcome": "winner"
+      },
+      {
+       "match": "L2",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "RESET",
+     "section": "finals",
+     "column": 1,
+     "round": "Grand Final Reset",
+     "sources": [
+      {
+       "match": "GF",
+       "outcome": "loser"
+      },
+      {
+       "match": "GF",
+       "outcome": "winner"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "size": 8,
+   "matches": 15,
+   "winners": 7,
+   "losers": 6,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,L1,L2,L3,L4,L5,L6,GF,RESET",
+   "structure": [
+    {
+     "id": "W1",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 0
+      },
+      {
+       "seed": 1
+      }
+     ]
+    },
+    {
+     "id": "W2",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 2
+      },
+      {
+       "seed": 3
+      }
+     ]
+    },
+    {
+     "id": "W3",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 4
+      },
+      {
+       "seed": 5
+      }
+     ]
+    },
+    {
+     "id": "W4",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 6
+      },
+      {
+       "seed": 7
+      }
+     ]
+    },
+    {
+     "id": "W5",
+     "section": "winners",
+     "column": 1,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W2",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "W6",
+     "section": "winners",
+     "column": 1,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "match": "W3",
+       "outcome": "winner"
+      },
+      {
+       "match": "W4",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "W7",
+     "section": "winners",
+     "column": 2,
+     "round": "Winners Final",
+     "sources": [
+      {
+       "match": "W5",
+       "outcome": "winner"
+      },
+      {
+       "match": "W6",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "L1",
+     "section": "losers",
+     "column": 0,
+     "round": "Losers Round 1",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "loser"
+      },
+      {
+       "match": "W2",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L2",
+     "section": "losers",
+     "column": 0,
+     "round": "Losers Round 1",
+     "sources": [
+      {
+       "match": "W3",
+       "outcome": "loser"
+      },
+      {
+       "match": "W4",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L3",
+     "section": "losers",
+     "column": 1,
+     "round": "Losers Round 2",
+     "sources": [
+      {
+       "match": "L1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W6",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L4",
+     "section": "losers",
+     "column": 1,
+     "round": "Losers Round 2",
+     "sources": [
+      {
+       "match": "L2",
+       "outcome": "winner"
+      },
+      {
+       "match": "W5",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L5",
+     "section": "losers",
+     "column": 2,
+     "round": "Losers Round 3",
+     "sources": [
+      {
+       "match": "L3",
+       "outcome": "winner"
+      },
+      {
+       "match": "L4",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "L6",
+     "section": "losers",
+     "column": 3,
+     "round": "Losers Final",
+     "sources": [
+      {
+       "match": "L5",
+       "outcome": "winner"
+      },
+      {
+       "match": "W7",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "GF",
+     "section": "finals",
+     "column": 0,
+     "round": "Grand Final",
+     "sources": [
+      {
+       "match": "W7",
+       "outcome": "winner"
+      },
+      {
+       "match": "L6",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "RESET",
+     "section": "finals",
+     "column": 1,
+     "round": "Grand Final Reset",
+     "sources": [
+      {
+       "match": "GF",
+       "outcome": "loser"
+      },
+      {
+       "match": "GF",
+       "outcome": "winner"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "size": 8,
+   "matches": 15,
+   "winners": 7,
+   "losers": 6,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,L1,L2,L3,L4,L5,L6,GF,RESET",
+   "structure": [
+    {
+     "id": "W1",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 0
+      },
+      {
+       "seed": 1
+      }
+     ]
+    },
+    {
+     "id": "W2",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 2
+      },
+      {
+       "seed": 3
+      }
+     ]
+    },
+    {
+     "id": "W3",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 4
+      },
+      {
+       "seed": 5
+      }
+     ]
+    },
+    {
+     "id": "W4",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 6
+      },
+      {
+       "seed": 7
+      }
+     ]
+    },
+    {
+     "id": "W5",
+     "section": "winners",
+     "column": 1,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W2",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "W6",
+     "section": "winners",
+     "column": 1,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "match": "W3",
+       "outcome": "winner"
+      },
+      {
+       "match": "W4",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "W7",
+     "section": "winners",
+     "column": 2,
+     "round": "Winners Final",
+     "sources": [
+      {
+       "match": "W5",
+       "outcome": "winner"
+      },
+      {
+       "match": "W6",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "L1",
+     "section": "losers",
+     "column": 0,
+     "round": "Losers Round 1",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "loser"
+      },
+      {
+       "match": "W2",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L2",
+     "section": "losers",
+     "column": 0,
+     "round": "Losers Round 1",
+     "sources": [
+      {
+       "match": "W3",
+       "outcome": "loser"
+      },
+      {
+       "match": "W4",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L3",
+     "section": "losers",
+     "column": 1,
+     "round": "Losers Round 2",
+     "sources": [
+      {
+       "match": "L1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W6",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L4",
+     "section": "losers",
+     "column": 1,
+     "round": "Losers Round 2",
+     "sources": [
+      {
+       "match": "L2",
+       "outcome": "winner"
+      },
+      {
+       "match": "W5",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L5",
+     "section": "losers",
+     "column": 2,
+     "round": "Losers Round 3",
+     "sources": [
+      {
+       "match": "L3",
+       "outcome": "winner"
+      },
+      {
+       "match": "L4",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "L6",
+     "section": "losers",
+     "column": 3,
+     "round": "Losers Final",
+     "sources": [
+      {
+       "match": "L5",
+       "outcome": "winner"
+      },
+      {
+       "match": "W7",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "GF",
+     "section": "finals",
+     "column": 0,
+     "round": "Grand Final",
+     "sources": [
+      {
+       "match": "W7",
+       "outcome": "winner"
+      },
+      {
+       "match": "L6",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "RESET",
+     "section": "finals",
+     "column": 1,
+     "round": "Grand Final Reset",
+     "sources": [
+      {
+       "match": "GF",
+       "outcome": "loser"
+      },
+      {
+       "match": "GF",
+       "outcome": "winner"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "size": 8,
+   "matches": 15,
+   "winners": 7,
+   "losers": 6,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,L1,L2,L3,L4,L5,L6,GF,RESET",
+   "structure": [
+    {
+     "id": "W1",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 0
+      },
+      {
+       "seed": 1
+      }
+     ]
+    },
+    {
+     "id": "W2",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 2
+      },
+      {
+       "seed": 3
+      }
+     ]
+    },
+    {
+     "id": "W3",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 4
+      },
+      {
+       "seed": 5
+      }
+     ]
+    },
+    {
+     "id": "W4",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 6
+      },
+      {
+       "seed": 7
+      }
+     ]
+    },
+    {
+     "id": "W5",
+     "section": "winners",
+     "column": 1,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W2",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "W6",
+     "section": "winners",
+     "column": 1,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "match": "W3",
+       "outcome": "winner"
+      },
+      {
+       "match": "W4",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "W7",
+     "section": "winners",
+     "column": 2,
+     "round": "Winners Final",
+     "sources": [
+      {
+       "match": "W5",
+       "outcome": "winner"
+      },
+      {
+       "match": "W6",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "L1",
+     "section": "losers",
+     "column": 0,
+     "round": "Losers Round 1",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "loser"
+      },
+      {
+       "match": "W2",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L2",
+     "section": "losers",
+     "column": 0,
+     "round": "Losers Round 1",
+     "sources": [
+      {
+       "match": "W3",
+       "outcome": "loser"
+      },
+      {
+       "match": "W4",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L3",
+     "section": "losers",
+     "column": 1,
+     "round": "Losers Round 2",
+     "sources": [
+      {
+       "match": "L1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W6",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L4",
+     "section": "losers",
+     "column": 1,
+     "round": "Losers Round 2",
+     "sources": [
+      {
+       "match": "L2",
+       "outcome": "winner"
+      },
+      {
+       "match": "W5",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L5",
+     "section": "losers",
+     "column": 2,
+     "round": "Losers Round 3",
+     "sources": [
+      {
+       "match": "L3",
+       "outcome": "winner"
+      },
+      {
+       "match": "L4",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "L6",
+     "section": "losers",
+     "column": 3,
+     "round": "Losers Final",
+     "sources": [
+      {
+       "match": "L5",
+       "outcome": "winner"
+      },
+      {
+       "match": "W7",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "GF",
+     "section": "finals",
+     "column": 0,
+     "round": "Grand Final",
+     "sources": [
+      {
+       "match": "W7",
+       "outcome": "winner"
+      },
+      {
+       "match": "L6",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "RESET",
+     "section": "finals",
+     "column": 1,
+     "round": "Grand Final Reset",
+     "sources": [
+      {
+       "match": "GF",
+       "outcome": "loser"
+      },
+      {
+       "match": "GF",
+       "outcome": "winner"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "size": 8,
+   "matches": 15,
+   "winners": 7,
+   "losers": 6,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,L1,L2,L3,L4,L5,L6,GF,RESET",
+   "structure": [
+    {
+     "id": "W1",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 0
+      },
+      {
+       "seed": 1
+      }
+     ]
+    },
+    {
+     "id": "W2",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 2
+      },
+      {
+       "seed": 3
+      }
+     ]
+    },
+    {
+     "id": "W3",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 4
+      },
+      {
+       "seed": 5
+      }
+     ]
+    },
+    {
+     "id": "W4",
+     "section": "winners",
+     "column": 0,
+     "round": "Winners Round 1",
+     "sources": [
+      {
+       "seed": 6
+      },
+      {
+       "seed": 7
+      }
+     ]
+    },
+    {
+     "id": "W5",
+     "section": "winners",
+     "column": 1,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W2",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "W6",
+     "section": "winners",
+     "column": 1,
+     "round": "Winners Semifinals",
+     "sources": [
+      {
+       "match": "W3",
+       "outcome": "winner"
+      },
+      {
+       "match": "W4",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "W7",
+     "section": "winners",
+     "column": 2,
+     "round": "Winners Final",
+     "sources": [
+      {
+       "match": "W5",
+       "outcome": "winner"
+      },
+      {
+       "match": "W6",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "L1",
+     "section": "losers",
+     "column": 0,
+     "round": "Losers Round 1",
+     "sources": [
+      {
+       "match": "W1",
+       "outcome": "loser"
+      },
+      {
+       "match": "W2",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L2",
+     "section": "losers",
+     "column": 0,
+     "round": "Losers Round 1",
+     "sources": [
+      {
+       "match": "W3",
+       "outcome": "loser"
+      },
+      {
+       "match": "W4",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L3",
+     "section": "losers",
+     "column": 1,
+     "round": "Losers Round 2",
+     "sources": [
+      {
+       "match": "L1",
+       "outcome": "winner"
+      },
+      {
+       "match": "W6",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L4",
+     "section": "losers",
+     "column": 1,
+     "round": "Losers Round 2",
+     "sources": [
+      {
+       "match": "L2",
+       "outcome": "winner"
+      },
+      {
+       "match": "W5",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "L5",
+     "section": "losers",
+     "column": 2,
+     "round": "Losers Round 3",
+     "sources": [
+      {
+       "match": "L3",
+       "outcome": "winner"
+      },
+      {
+       "match": "L4",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "L6",
+     "section": "losers",
+     "column": 3,
+     "round": "Losers Final",
+     "sources": [
+      {
+       "match": "L5",
+       "outcome": "winner"
+      },
+      {
+       "match": "W7",
+       "outcome": "loser"
+      }
+     ]
+    },
+    {
+     "id": "GF",
+     "section": "finals",
+     "column": 0,
+     "round": "Grand Final",
+     "sources": [
+      {
+       "match": "W7",
+       "outcome": "winner"
+      },
+      {
+       "match": "L6",
+       "outcome": "winner"
+      }
+     ]
+    },
+    {
+     "id": "RESET",
+     "section": "finals",
+     "column": 1,
+     "round": "Grand Final Reset",
+     "sources": [
+      {
+       "match": "GF",
+       "outcome": "loser"
+      },
+      {
+       "match": "GF",
+       "outcome": "winner"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "n": 9,
+   "size": 16,
+   "matches": 31,
+   "winners": 15,
+   "losers": 14,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12,W13,W14,W15,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,GF,RESET",
+   "digest": "41f98f07bfef5411"
+  },
+  {
+   "n": 12,
+   "size": 16,
+   "matches": 31,
+   "winners": 15,
+   "losers": 14,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12,W13,W14,W15,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,GF,RESET",
+   "digest": "41f98f07bfef5411"
+  },
+  {
+   "n": 16,
+   "size": 16,
+   "matches": 31,
+   "winners": 15,
+   "losers": 14,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12,W13,W14,W15,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,GF,RESET",
+   "digest": "41f98f07bfef5411"
+  },
+  {
+   "n": 17,
+   "size": 32,
+   "matches": 63,
+   "winners": 31,
+   "losers": 30,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12,W13,W14,W15,W16,W17,W18,W19,W20,W21,W22,W23,W24,W25,W26,W27,W28,W29,W30,W31,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20,L21,L22,L23,L24,L25,L26,L27,L28,L29,L30,GF,RESET",
+   "digest": "8c468eafd4d1704a"
+  },
+  {
+   "n": 32,
+   "size": 32,
+   "matches": 63,
+   "winners": 31,
+   "losers": 30,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12,W13,W14,W15,W16,W17,W18,W19,W20,W21,W22,W23,W24,W25,W26,W27,W28,W29,W30,W31,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20,L21,L22,L23,L24,L25,L26,L27,L28,L29,L30,GF,RESET",
+   "digest": "8c468eafd4d1704a"
+  },
+  {
+   "n": 33,
+   "size": 64,
+   "matches": 127,
+   "winners": 63,
+   "losers": 62,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12,W13,W14,W15,W16,W17,W18,W19,W20,W21,W22,W23,W24,W25,W26,W27,W28,W29,W30,W31,W32,W33,W34,W35,W36,W37,W38,W39,W40,W41,W42,W43,W44,W45,W46,W47,W48,W49,W50,W51,W52,W53,W54,W55,W56,W57,W58,W59,W60,W61,W62,W63,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20,L21,L22,L23,L24,L25,L26,L27,L28,L29,L30,L31,L32,L33,L34,L35,L36,L37,L38,L39,L40,L41,L42,L43,L44,L45,L46,L47,L48,L49,L50,L51,L52,L53,L54,L55,L56,L57,L58,L59,L60,L61,L62,GF,RESET",
+   "digest": "4000afdfc0c86792"
+  },
+  {
+   "n": 64,
+   "size": 64,
+   "matches": 127,
+   "winners": 63,
+   "losers": 62,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12,W13,W14,W15,W16,W17,W18,W19,W20,W21,W22,W23,W24,W25,W26,W27,W28,W29,W30,W31,W32,W33,W34,W35,W36,W37,W38,W39,W40,W41,W42,W43,W44,W45,W46,W47,W48,W49,W50,W51,W52,W53,W54,W55,W56,W57,W58,W59,W60,W61,W62,W63,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20,L21,L22,L23,L24,L25,L26,L27,L28,L29,L30,L31,L32,L33,L34,L35,L36,L37,L38,L39,L40,L41,L42,L43,L44,L45,L46,L47,L48,L49,L50,L51,L52,L53,L54,L55,L56,L57,L58,L59,L60,L61,L62,GF,RESET",
+   "digest": "4000afdfc0c86792"
+  },
+  {
+   "n": 100,
+   "size": 128,
+   "matches": 255,
+   "winners": 127,
+   "losers": 126,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12,W13,W14,W15,W16,W17,W18,W19,W20,W21,W22,W23,W24,W25,W26,W27,W28,W29,W30,W31,W32,W33,W34,W35,W36,W37,W38,W39,W40,W41,W42,W43,W44,W45,W46,W47,W48,W49,W50,W51,W52,W53,W54,W55,W56,W57,W58,W59,W60,W61,W62,W63,W64,W65,W66,W67,W68,W69,W70,W71,W72,W73,W74,W75,W76,W77,W78,W79,W80,W81,W82,W83,W84,W85,W86,W87,W88,W89,W90,W91,W92,W93,W94,W95,W96,W97,W98,W99,W100,W101,W102,W103,W104,W105,W106,W107,W108,W109,W110,W111,W112,W113,W114,W115,W116,W117,W118,W119,W120,W121,W122,W123,W124,W125,W126,W127,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20,L21,L22,L23,L24,L25,L26,L27,L28,L29,L30,L31,L32,L33,L34,L35,L36,L37,L38,L39,L40,L41,L42,L43,L44,L45,L46,L47,L48,L49,L50,L51,L52,L53,L54,L55,L56,L57,L58,L59,L60,L61,L62,L63,L64,L65,L66,L67,L68,L69,L70,L71,L72,L73,L74,L75,L76,L77,L78,L79,L80,L81,L82,L83,L84,L85,L86,L87,L88,L89,L90,L91,L92,L93,L94,L95,L96,L97,L98,L99,L100,L101,L102,L103,L104,L105,L106,L107,L108,L109,L110,L111,L112,L113,L114,L115,L116,L117,L118,L119,L120,L121,L122,L123,L124,L125,L126,GF,RESET",
+   "digest": "1a7c257044793f1e"
+  },
+  {
+   "n": 128,
+   "size": 128,
+   "matches": 255,
+   "winners": 127,
+   "losers": 126,
+   "ids": "W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12,W13,W14,W15,W16,W17,W18,W19,W20,W21,W22,W23,W24,W25,W26,W27,W28,W29,W30,W31,W32,W33,W34,W35,W36,W37,W38,W39,W40,W41,W42,W43,W44,W45,W46,W47,W48,W49,W50,W51,W52,W53,W54,W55,W56,W57,W58,W59,W60,W61,W62,W63,W64,W65,W66,W67,W68,W69,W70,W71,W72,W73,W74,W75,W76,W77,W78,W79,W80,W81,W82,W83,W84,W85,W86,W87,W88,W89,W90,W91,W92,W93,W94,W95,W96,W97,W98,W99,W100,W101,W102,W103,W104,W105,W106,W107,W108,W109,W110,W111,W112,W113,W114,W115,W116,W117,W118,W119,W120,W121,W122,W123,W124,W125,W126,W127,L1,L2,L3,L4,L5,L6,L7,L8,L9,L10,L11,L12,L13,L14,L15,L16,L17,L18,L19,L20,L21,L22,L23,L24,L25,L26,L27,L28,L29,L30,L31,L32,L33,L34,L35,L36,L37,L38,L39,L40,L41,L42,L43,L44,L45,L46,L47,L48,L49,L50,L51,L52,L53,L54,L55,L56,L57,L58,L59,L60,L61,L62,L63,L64,L65,L66,L67,L68,L69,L70,L71,L72,L73,L74,L75,L76,L77,L78,L79,L80,L81,L82,L83,L84,L85,L86,L87,L88,L89,L90,L91,L92,L93,L94,L95,L96,L97,L98,L99,L100,L101,L102,L103,L104,L105,L106,L107,L108,L109,L110,L111,L112,L113,L114,L115,L116,L117,L118,L119,L120,L121,L122,L123,L124,L125,L126,GF,RESET",
+   "digest": "1a7c257044793f1e"
+  }
+ ],
+ "seedOrders": [
+  {
+   "size": 2,
+   "order": [
+    1,
+    2
+   ]
+  },
+  {
+   "size": 4,
+   "order": [
+    1,
+    4,
+    2,
+    3
+   ]
+  },
+  {
+   "size": 8,
+   "order": [
+    1,
+    8,
+    4,
+    5,
+    2,
+    7,
+    3,
+    6
+   ]
+  },
+  {
+   "size": 16,
+   "order": [
+    1,
+    16,
+    8,
+    9,
+    4,
+    13,
+    5,
+    12,
+    2,
+    15,
+    7,
+    10,
+    3,
+    14,
+    6,
+    11
+   ]
+  },
+  {
+   "size": 32,
+   "digest": "bee2f357fb0e4414"
+  },
+  {
+   "size": 64,
+   "digest": "fdf3d229bbe6200d"
+  },
+  {
+   "size": 128,
+   "digest": "b540bda940802b77"
+  }
+ ],
+ "draws": [
+  {
+   "n": 2,
+   "rng": 15601,
+   "seeds": [
+    "p2",
+    "p1"
+   ],
+   "byes": 0
+  },
+  {
+   "n": 3,
+   "rng": 15601,
+   "seeds": [
+    "p2",
+    "",
+    "p3",
+    "p1"
+   ],
+   "byes": 1
+  },
+  {
+   "n": 4,
+   "rng": 15601,
+   "seeds": [
+    "p2",
+    "p1",
+    "p3",
+    "p4"
+   ],
+   "byes": 0
+  },
+  {
+   "n": 5,
+   "rng": 15601,
+   "seeds": [
+    "p2",
+    "",
+    "p5",
+    "p1",
+    "p3",
+    "",
+    "p4",
+    ""
+   ],
+   "byes": 3
+  },
+  {
+   "n": 6,
+   "rng": 15601,
+   "seeds": [
+    "p2",
+    "",
+    "p5",
+    "p6",
+    "p3",
+    "",
+    "p4",
+    "p1"
+   ],
+   "byes": 2
+  },
+  {
+   "n": 7,
+   "rng": 15601,
+   "seeds": [
+    "p3",
+    "",
+    "p6",
+    "p2",
+    "p5",
+    "p1",
+    "p4",
+    "p7"
+   ],
+   "byes": 1
+  },
+  {
+   "n": 8,
+   "rng": 15601,
+   "seeds": [
+    "p4",
+    "p1",
+    "p5",
+    "p7",
+    "p6",
+    "p8",
+    "p3",
+    "p2"
+   ],
+   "byes": 0
+  },
+  {
+   "n": 9,
+   "rng": 15601,
+   "seeds": [
+    "p6",
+    "",
+    "p9",
+    "p1",
+    "p4",
+    "",
+    "p7",
+    "",
+    "p5",
+    "",
+    "p2",
+    "",
+    "p3",
+    "",
+    "p8",
+    ""
+   ],
+   "byes": 7
+  },
+  {
+   "n": 16,
+   "rng": 15601,
+   "seeds": [
+    "p7",
+    "p1",
+    "p15",
+    "p10",
+    "p6",
+    "p16",
+    "p5",
+    "p3",
+    "p12",
+    "p2",
+    "p13",
+    "p8",
+    "p14",
+    "p4",
+    "p11",
+    "p9"
+   ],
+   "byes": 0
+  },
+  {
+   "n": 17,
+   "rng": 15601,
+   "seeds": [
+    "p5",
+    "",
+    "p2",
+    "p1",
+    "p14",
+    "",
+    "p16",
+    "",
+    "p7",
+    "",
+    "p3",
+    "",
+    "p13",
+    "",
+    "p10",
+    "",
+    "p11",
+    "",
+    "p4",
+    "",
+    "p12",
+    "",
+    "p9",
+    "",
+    "p15",
+    "",
+    "p17",
+    "",
+    "p6",
+    "",
+    "p8",
+    ""
+   ],
+   "byes": 15
+  },
+  {
+   "n": 6,
+   "rng": 15601,
+   "priorities": {
+    "p3": 1,
+    "p5": 2
+   },
+   "seeds": [
+    "p3",
+    "",
+    "p4",
+    "p6",
+    "p5",
+    "",
+    "p2",
+    "p1"
+   ]
+  }
+ ],
+ "byeBrackets": [
+  {
+   "n": 3,
+   "bracket": [
+    {
+     "id": "W1",
+     "p": [
+      "p2",
+      null
+     ],
+     "enabled": true,
+     "automatic": true,
+     "settled": true,
+     "w": "p2",
+     "l": null
+    },
+    {
+     "id": "W2",
+     "p": [
+      "p3",
+      "p1"
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W3",
+     "p": [
+      "p2",
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L1",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L2",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "GF",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "RESET",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": false,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "bracket": [
+    {
+     "id": "W1",
+     "p": [
+      "p2",
+      null
+     ],
+     "enabled": true,
+     "automatic": true,
+     "settled": true,
+     "w": "p2",
+     "l": null
+    },
+    {
+     "id": "W2",
+     "p": [
+      "p5",
+      "p1"
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W3",
+     "p": [
+      "p3",
+      null
+     ],
+     "enabled": true,
+     "automatic": true,
+     "settled": true,
+     "w": "p3",
+     "l": null
+    },
+    {
+     "id": "W4",
+     "p": [
+      "p4",
+      null
+     ],
+     "enabled": true,
+     "automatic": true,
+     "settled": true,
+     "w": "p4",
+     "l": null
+    },
+    {
+     "id": "W5",
+     "p": [
+      "p2",
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W6",
+     "p": [
+      "p3",
+      "p4"
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W7",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L1",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L2",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": true,
+     "settled": true,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L3",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L4",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L5",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L6",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "GF",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "RESET",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": false,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "bracket": [
+    {
+     "id": "W1",
+     "p": [
+      "p2",
+      null
+     ],
+     "enabled": true,
+     "automatic": true,
+     "settled": true,
+     "w": "p2",
+     "l": null
+    },
+    {
+     "id": "W2",
+     "p": [
+      "p5",
+      "p6"
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W3",
+     "p": [
+      "p3",
+      null
+     ],
+     "enabled": true,
+     "automatic": true,
+     "settled": true,
+     "w": "p3",
+     "l": null
+    },
+    {
+     "id": "W4",
+     "p": [
+      "p4",
+      "p1"
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W5",
+     "p": [
+      "p2",
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W6",
+     "p": [
+      "p3",
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W7",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L1",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L2",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L3",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L4",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L5",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L6",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "GF",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "RESET",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": false,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "bracket": [
+    {
+     "id": "W1",
+     "p": [
+      "p3",
+      null
+     ],
+     "enabled": true,
+     "automatic": true,
+     "settled": true,
+     "w": "p3",
+     "l": null
+    },
+    {
+     "id": "W2",
+     "p": [
+      "p6",
+      "p2"
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W3",
+     "p": [
+      "p5",
+      "p1"
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W4",
+     "p": [
+      "p4",
+      "p7"
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W5",
+     "p": [
+      "p3",
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W6",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "W7",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L1",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L2",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L3",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L4",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L5",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "L6",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "GF",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": true,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    },
+    {
+     "id": "RESET",
+     "p": [
+      null,
+      null
+     ],
+     "enabled": false,
+     "automatic": false,
+     "settled": false,
+     "w": null,
+     "l": null
+    }
+   ]
+  }
+ ],
+ "formats": [
+  {
+   "format": "BO3",
+   "slot": 0,
+   "loserScore": 0,
+   "value": {
+    "format": "BO3",
+    "scores": [
+     2,
+     0
+    ],
+    "confirmed": true
+   },
+   "valid": true,
+   "winnerSlot": 0
+  },
+  {
+   "format": "BO3",
+   "slot": 0,
+   "loserScore": 1,
+   "value": {
+    "format": "BO3",
+    "scores": [
+     2,
+     1
+    ],
+    "confirmed": true
+   },
+   "valid": true,
+   "winnerSlot": 0
+  },
+  {
+   "format": "BO3",
+   "slot": 0,
+   "loserScore": 2,
+   "value": {
+    "format": "BO3",
+    "scores": [
+     2,
+     2
+    ],
+    "confirmed": true
+   },
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "format": "BO3",
+   "slot": 0,
+   "loserScore": 4,
+   "value": {
+    "format": "BO3",
+    "scores": [
+     2,
+     4
+    ],
+    "confirmed": true
+   },
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "format": "BO3",
+   "slot": 1,
+   "loserScore": 0,
+   "value": {
+    "format": "BO3",
+    "scores": [
+     0,
+     2
+    ],
+    "confirmed": true
+   },
+   "valid": true,
+   "winnerSlot": 1
+  },
+  {
+   "format": "BO3",
+   "slot": 1,
+   "loserScore": 1,
+   "value": {
+    "format": "BO3",
+    "scores": [
+     1,
+     2
+    ],
+    "confirmed": true
+   },
+   "valid": true,
+   "winnerSlot": 1
+  },
+  {
+   "format": "BO3",
+   "slot": 1,
+   "loserScore": 2,
+   "value": {
+    "format": "BO3",
+    "scores": [
+     2,
+     2
+    ],
+    "confirmed": true
+   },
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "format": "BO3",
+   "slot": 1,
+   "loserScore": 4,
+   "value": {
+    "format": "BO3",
+    "scores": [
+     4,
+     2
+    ],
+    "confirmed": true
+   },
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "format": "BO5",
+   "slot": 0,
+   "loserScore": 0,
+   "value": {
+    "format": "BO5",
+    "scores": [
+     3,
+     0
+    ],
+    "confirmed": true
+   },
+   "valid": true,
+   "winnerSlot": 0
+  },
+  {
+   "format": "BO5",
+   "slot": 0,
+   "loserScore": 1,
+   "value": {
+    "format": "BO5",
+    "scores": [
+     3,
+     1
+    ],
+    "confirmed": true
+   },
+   "valid": true,
+   "winnerSlot": 0
+  },
+  {
+   "format": "BO5",
+   "slot": 0,
+   "loserScore": 2,
+   "value": {
+    "format": "BO5",
+    "scores": [
+     3,
+     2
+    ],
+    "confirmed": true
+   },
+   "valid": true,
+   "winnerSlot": 0
+  },
+  {
+   "format": "BO5",
+   "slot": 0,
+   "loserScore": 4,
+   "value": {
+    "format": "BO5",
+    "scores": [
+     3,
+     4
+    ],
+    "confirmed": true
+   },
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "format": "BO5",
+   "slot": 1,
+   "loserScore": 0,
+   "value": {
+    "format": "BO5",
+    "scores": [
+     0,
+     3
+    ],
+    "confirmed": true
+   },
+   "valid": true,
+   "winnerSlot": 1
+  },
+  {
+   "format": "BO5",
+   "slot": 1,
+   "loserScore": 1,
+   "value": {
+    "format": "BO5",
+    "scores": [
+     1,
+     3
+    ],
+    "confirmed": true
+   },
+   "valid": true,
+   "winnerSlot": 1
+  },
+  {
+   "format": "BO5",
+   "slot": 1,
+   "loserScore": 2,
+   "value": {
+    "format": "BO5",
+    "scores": [
+     2,
+     3
+    ],
+    "confirmed": true
+   },
+   "valid": true,
+   "winnerSlot": 1
+  },
+  {
+   "format": "BO5",
+   "slot": 1,
+   "loserScore": 4,
+   "value": {
+    "format": "BO5",
+    "scores": [
+     4,
+     3
+    ],
+    "confirmed": true
+   },
+   "valid": false,
+   "winnerSlot": null
+  }
+ ],
+ "invalidResults": [
+  {
+   "label": "bad format",
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "label": "both reach target",
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "label": "over target",
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "label": "negative",
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "label": "confirmed without winner",
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "label": "non integer",
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "label": "dq not confirmed",
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "label": "dq bad loser",
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "label": "dq bad date",
+   "valid": false,
+   "winnerSlot": null
+  },
+  {
+   "label": "in progress ok",
+   "valid": true,
+   "winnerSlot": null
+  },
+  {
+   "label": "dq ok",
+   "valid": true,
+   "winnerSlot": 0
+  }
+ ],
+ "fullPlays": [
+  {
+   "n": 2,
+   "kind": "favorite",
+   "played": 2,
+   "resetPlayed": false,
+   "champion": "p2",
+   "order": [
+    "W1",
+    "GF"
+   ],
+   "orderDigest": "db3d7631af12bc3a",
+   "completionLen": 2
+  },
+  {
+   "n": 2,
+   "kind": "upset-grand-final",
+   "played": 3,
+   "resetPlayed": true,
+   "champion": "p2",
+   "order": [
+    "W1",
+    "GF",
+    "RESET"
+   ],
+   "orderDigest": "435e4a43c134575a",
+   "completionLen": 3
+  },
+  {
+   "n": 3,
+   "kind": "favorite",
+   "played": 4,
+   "resetPlayed": false,
+   "champion": "p2",
+   "order": [
+    "W2",
+    "W3",
+    "L2",
+    "GF"
+   ],
+   "orderDigest": "9dfa23c292e32039",
+   "completionLen": 4
+  },
+  {
+   "n": 3,
+   "kind": "upset-grand-final",
+   "played": 5,
+   "resetPlayed": true,
+   "champion": "p2",
+   "order": [
+    "W2",
+    "W3",
+    "L2",
+    "GF",
+    "RESET"
+   ],
+   "orderDigest": "d9a35b7f543e1e0d",
+   "completionLen": 5
+  },
+  {
+   "n": 4,
+   "kind": "favorite",
+   "played": 6,
+   "resetPlayed": false,
+   "champion": "p2",
+   "order": [
+    "W1",
+    "W2",
+    "W3",
+    "L1",
+    "L2",
+    "GF"
+   ],
+   "orderDigest": "9e4a037876a06e01",
+   "completionLen": 6
+  },
+  {
+   "n": 4,
+   "kind": "upset-grand-final",
+   "played": 7,
+   "resetPlayed": true,
+   "champion": "p2",
+   "order": [
+    "W1",
+    "W2",
+    "W3",
+    "L1",
+    "L2",
+    "GF",
+    "RESET"
+   ],
+   "orderDigest": "390be551e7b0e82c",
+   "completionLen": 7
+  },
+  {
+   "n": 5,
+   "kind": "favorite",
+   "played": 8,
+   "resetPlayed": false,
+   "champion": "p2",
+   "order": [
+    "W2",
+    "W5",
+    "W6",
+    "W7",
+    "L3",
+    "L5",
+    "L6",
+    "GF"
+   ],
+   "orderDigest": "87b33ce3159084de",
+   "completionLen": 8
+  },
+  {
+   "n": 5,
+   "kind": "upset-grand-final",
+   "played": 9,
+   "resetPlayed": true,
+   "champion": "p2",
+   "order": [
+    "W2",
+    "W5",
+    "W6",
+    "W7",
+    "L3",
+    "L5",
+    "L6",
+    "GF",
+    "RESET"
+   ],
+   "orderDigest": "bf98a889cfcd9d97",
+   "completionLen": 9
+  },
+  {
+   "n": 8,
+   "kind": "favorite",
+   "played": 14,
+   "resetPlayed": false,
+   "champion": "p4",
+   "order": null,
+   "orderDigest": "c3c381ac3f1ec434",
+   "completionLen": 14
+  },
+  {
+   "n": 8,
+   "kind": "upset-grand-final",
+   "played": 15,
+   "resetPlayed": true,
+   "champion": "p4",
+   "order": null,
+   "orderDigest": "b6031a7be48ce148",
+   "completionLen": 15
+  },
+  {
+   "n": 9,
+   "kind": "favorite",
+   "played": 16,
+   "resetPlayed": false,
+   "champion": "p6",
+   "order": null,
+   "orderDigest": "f186d037ee0ba3a5",
+   "completionLen": 16
+  },
+  {
+   "n": 9,
+   "kind": "upset-grand-final",
+   "played": 17,
+   "resetPlayed": true,
+   "champion": "p6",
+   "order": null,
+   "orderDigest": "c7c12c108c775f1a",
+   "completionLen": 17
+  },
+  {
+   "n": 16,
+   "kind": "favorite",
+   "played": 30,
+   "resetPlayed": false,
+   "champion": "p7",
+   "order": null,
+   "orderDigest": "076bfab206d2207e",
+   "completionLen": 30
+  },
+  {
+   "n": 16,
+   "kind": "upset-grand-final",
+   "played": 31,
+   "resetPlayed": true,
+   "champion": "p7",
+   "order": null,
+   "orderDigest": "c48298a610c78fb0",
+   "completionLen": 31
+  },
+  {
+   "n": 17,
+   "kind": "favorite",
+   "played": 32,
+   "resetPlayed": false,
+   "champion": "p5",
+   "order": null,
+   "orderDigest": "946144c7360430f5",
+   "completionLen": 32
+  },
+  {
+   "n": 17,
+   "kind": "upset-grand-final",
+   "played": 33,
+   "resetPlayed": true,
+   "champion": "p5",
+   "order": null,
+   "orderDigest": "969f2413999da5c7",
+   "completionLen": 33
+  },
+  {
+   "n": 32,
+   "kind": "favorite",
+   "played": 62,
+   "resetPlayed": false,
+   "champion": "p11",
+   "order": null,
+   "orderDigest": "02024a79962aa7c5",
+   "completionLen": 62
+  },
+  {
+   "n": 32,
+   "kind": "upset-grand-final",
+   "played": 63,
+   "resetPlayed": true,
+   "champion": "p11",
+   "order": null,
+   "orderDigest": "c21ce5dfdf31bd06",
+   "completionLen": 63
+  }
+ ],
+ "corrections": {
+  "initial": [
+   {
+    "id": "W1",
+    "p": [
+     "p2",
+     "p1"
+    ],
+    "enabled": true,
+    "automatic": false,
+    "settled": false,
+    "w": null,
+    "l": null
+   },
+   {
+    "id": "W2",
+    "p": [
+     "p3",
+     "p4"
+    ],
+    "enabled": true,
+    "automatic": false,
+    "settled": false,
+    "w": null,
+    "l": null
+   },
+   {
+    "id": "W3",
+    "p": [
+     null,
+     null
+    ],
+    "enabled": true,
+    "automatic": false,
+    "settled": false,
+    "w": null,
+    "l": null
+   },
+   {
+    "id": "L1",
+    "p": [
+     null,
+     null
+    ],
+    "enabled": true,
+    "automatic": false,
+    "settled": false,
+    "w": null,
+    "l": null
+   },
+   {
+    "id": "L2",
+    "p": [
+     null,
+     null
+    ],
+    "enabled": true,
+    "automatic": false,
+    "settled": false,
+    "w": null,
+    "l": null
+   },
+   {
+    "id": "GF",
+    "p": [
+     null,
+     null
+    ],
+    "enabled": true,
+    "automatic": false,
+    "settled": false,
+    "w": null,
+    "l": null
+   },
+   {
+    "id": "RESET",
+    "p": [
+     null,
+     null
+    ],
+    "enabled": false,
+    "automatic": false,
+    "settled": false,
+    "w": null,
+    "l": null
+   }
+  ],
+  "notStarted": {
+   "ok": false,
+   "error": "Inicia el torneo antes de registrar resultados."
+  },
+  "resetBeforeGrandFinal": {
+   "ok": false,
+   "error": "Faltan participantes definidos."
+  },
+  "undefinedPlayers": {
+   "ok": false,
+   "error": "Faltan participantes definidos."
+  },
+  "sameWinnerOtherScore": {
+   "ok": true,
+   "invalidated": [],
+   "completionOrder": [
+    "W1",
+    "W2",
+    "W3"
+   ]
+  },
+  "flipWinnerInvalidates": {
+   "ok": true,
+   "invalidated": [
+    "W3"
+   ],
+   "completionOrder": [
+    "W1",
+    "W2"
+   ]
+  },
+  "flipWinnerBO5": {
+   "ok": true,
+   "invalidated": [
+    "W3"
+   ],
+   "completionOrder": [
+    "W1",
+    "W2"
+   ]
+  },
+  "unconfirmedKeepsWinner": {
+   "ok": true,
+   "invalidated": [
+    "W3"
+   ],
+   "completionOrder": [
+    "W2"
+   ]
+  },
+  "detailsAccepted": {
+   "ok": true,
+   "invalidated": [],
+   "completionOrder": [
+    "W1"
+   ]
+  },
+  "detailsDroppedRejected": {
+   "ok": false,
+   "error": "Este set tiene historial por juego. Corrígelo desde VS para conservarlo."
+  },
+  "dqRecorded": {
+   "ok": true,
+   "invalidated": [],
+   "completionOrder": [
+    "W1"
+   ],
+   "winner": "p1"
+  },
+  "dqOverwriteRejected": {
+   "ok": false,
+   "error": "Revierte explícitamente el DQ antes de cambiar el resultado."
+  },
+  "dqRevertAllowed": {
+   "ok": true,
+   "invalidated": [],
+   "completionOrder": [
+    "W1"
+   ]
+  },
+  "descendantsOfW1": [
+   "W3",
+   "L1",
+   "L2",
+   "GF",
+   "RESET"
+  ],
+  "descendantsOfGF": [
+   "RESET"
+  ],
+  "fullFavorite": {
+   "champion": "p2",
+   "completionOrder": [
+    "W1",
+    "W2",
+    "W3",
+    "L1",
+    "L2",
+    "GF"
+   ]
+  },
+  "swapInvalidates": {
+   "invalidated": [
+    "W1",
+    "W3",
+    "W2"
+   ],
+   "seeds": [
+    "p3",
+    "p1",
+    "p2",
+    "p4"
+   ],
+   "completionOrder": [],
+   "resultsLeft": []
+  }
+ }
+}

@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, type ChangeEvent } from 'react'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import { cloudDraftError, initializeCloudDraft, previewDraft, readCloudSnapshot, snapshotExport, snapshotIsEmpty, type CloudSnapshot, type DraftPreview } from '../../lib/cloudDrafts'
+import { cloudDraftError, initializeCloudDraft, previewDraft, snapshotExport, snapshotIsEmpty, type CloudSnapshot, type DraftPreview } from '../../lib/cloudDrafts'
 import { readWorkspace, workspaceKey } from '../../lib/tournamentWorkspace'
+import { loadRemoteStatus, readFailureMessage, type RemoteStatus } from '../../lib/remoteStatus'
 import { AUTH_TEST_PROJECT_REF } from '../../lib/authTestProject'
 import { MAX_TOURNAMENT_JSON } from '../../utils/tournamentValidation'
 
@@ -15,6 +16,7 @@ function download(text: string, filename: string) {
 export function CloudDraftPanel({ client, id, name, userId, busy: parentBusy }: { client: SupabaseClient; id: string; name: string; userId: string; busy: boolean }) {
   const localKey = workspaceKey(AUTH_TEST_PROJECT_REF, userId, id)
   const [snapshot, setSnapshot] = useState<CloudSnapshot | null>(null)
+  const [status, setStatus] = useState<RemoteStatus | null>(null)
   const [preview, setPreview] = useState<DraftPreview | null>(null)
   const [source, setSource] = useState<'local' | 'file'>('local')
   const [busy, setBusy] = useState(false), [error, setError] = useState(''), [notice, setNotice] = useState('')
@@ -24,9 +26,15 @@ export function CloudDraftPanel({ client, id, name, userId, busy: parentBusy }: 
   const disabled = busy || parentBusy
   async function read() {
     if (pending.current) return
-    pending.current = true; setBusy(true); setError(''); setSnapshot(null); setConfirmed(false)
-    try { const next = await readCloudSnapshot(client, id); if (active.current) setSnapshot(next) }
-    catch (failure) { if (active.current) setError(cloudDraftError(failure)) }
+    pending.current = true; setBusy(true); setError(''); setSnapshot(null); setStatus(null); setConfirmed(false)
+    try {
+      // Read-only: the remote snapshot of THIS id is compared with THIS id's local workspace; nothing is written.
+      const next = await loadRemoteStatus(client, window.localStorage, AUTH_TEST_PROJECT_REF, userId, id, navigator.onLine)
+      if (!active.current) return
+      setStatus(next)
+      if (next.ok) setSnapshot(next.snapshot)
+      else setError(readFailureMessage(next.failure) ?? cloudDraftError(null))
+    } catch { if (active.current) setError(cloudDraftError(null)) }
     finally { pending.current = false; if (active.current) setBusy(false) }
   }
   function prepare(raw: string, origin: 'local' | 'file') {
@@ -81,6 +89,12 @@ export function CloudDraftPanel({ client, id, name, userId, busy: parentBusy }: 
     {busy && <p role="status" className="mt-3 text-sm text-slate-300">Procesando…</p>}
     {error && <p role="alert" className="mt-3 text-sm text-rose-300">{error}</p>}
     {notice && <p role="status" className="mt-3 break-words text-sm text-cyan-200">{notice}</p>}
+    {status?.ok && <div className="mt-4 space-y-1 rounded-xl border border-white/10 p-3 text-sm text-slate-300" role="status" aria-label="Estado remoto del torneo">
+      <p className="font-semibold text-cyan-200">Estado remoto · revisión {status.remote.revision}{status.remote.linked ? ' · borrador vinculado' : ''}</p>
+      {status.comparison.lines.map(line => <p key={line}>{line}</p>)}
+      {status.comparison.localOnlyResults && <p className="font-semibold text-amber-200">Solo local: respalda estos resultados antes de cambiar de dispositivo.</p>}
+      <p className="text-xs text-slate-500">Consulta de solo lectura: no importa, publica ni sincroniza resultados entre dispositivos.</p>
+    </div>}
     {snapshot && <div className="mt-4 space-y-3 border-t border-white/10 pt-4">
       <p className="text-sm text-slate-300">Revisión {snapshot.revision} · {snapshot.roster.length} participantes · {snapshotIsEmpty(snapshot) ? 'Remoto vacío' : 'Remoto con datos: solo lectura'}</p>
       {snapshot.import_id && <p className="break-all text-xs text-slate-400">Vinculación guardada: {snapshot.import_id}</p>}

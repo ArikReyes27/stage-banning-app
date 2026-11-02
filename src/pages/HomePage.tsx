@@ -6,6 +6,7 @@ import { RulesetGrid } from '../components/rulesets/RulesetGrid'
 import { RulesetSearch } from '../components/rulesets/RulesetSearch'
 import { Icon } from '../components/ui/Icon'
 import { useRulesets } from '../hooks/useRulesets'
+import { isAdminHost } from '../lib/accessMode'
 
 const normalizeText = (value: string) =>
   value
@@ -15,7 +16,10 @@ const normalizeText = (value: string) =>
 
 export function HomePage() {
   const [search, setSearch] = useState('')
-  const { rulesets } = useRulesets()
+  const { rulesets: allRulesets } = useRulesets()
+  // Public hosts (phones on the LAN, Vercel) only see the official rulesets and the ban flow.
+  const publicMode = !isAdminHost(window.location.hostname)
+  const rulesets = useMemo(() => publicMode ? allRulesets.filter(r => r.source === 'default') : allRulesets, [allRulesets, publicMode])
 
   const filteredRulesets = useMemo(() => {
     const query = normalizeText(search.trim())
@@ -53,9 +57,9 @@ export function HomePage() {
         <div className="home-hero-content">
           <p className="home-kicker">Super Smash Bros. Ultimate · Torneos presenciales</p>
           <h1 className="home-title">Tu torneo. Tus reglas.<span className="text-gradient block">Tu escenario.</span></h1>
-          <p className="home-intro">Registra participantes, organiza brackets y gestiona escenarios desde un solo lugar.</p>
+          <p className="home-intro">{publicMode ? 'Elige un ruleset y empieza el baneo de escenarios de tu enfrentamiento.' : 'Registra participantes, organiza brackets y gestiona escenarios desde un solo lugar.'}</p>
           <div className="home-actions">
-            {([
+            {(publicMode ? [] : [
               { title: 'Registro de participantes', description: 'Registra jugadores e importa listas desde Excel.', action: 'Registrar jugadores', href: '/registration', icon: 'users', tone: 'cyan' },
               { title: 'Bracket del torneo', description: 'Organiza enfrentamientos, Winners, Losers y resultados.', action: 'Administrar torneo', href: '/tournament', icon: 'trophy', tone: 'violet' },
               { title: 'Baneo de escenarios', description: 'Selecciona escenarios y juega siguiendo tu ruleset.', action: 'Elegir ruleset', href: '/#rulesets', icon: 'layers', tone: 'blue' },
@@ -66,12 +70,12 @@ export function HomePage() {
             </article>)}
           </div>
         </div>
-        <nav className="home-secondary" aria-label="Más herramientas">
+        {!publicMode && <nav className="home-secondary" aria-label="Más herramientas">
           <a className="focus-ring" href="/tournament/standings" onClick={e => { e.preventDefault(); navigateTo('/tournament/standings') }}><Icon name="trophy" className="h-4 w-4" />Standings · Top 8</a>
           <a className="focus-ring" href="/#rulesets" onClick={e => { e.preventDefault(); navigateTo('/#rulesets') }}><Icon name="grid" className="h-4 w-4" />Explorar rulesets</a>
           <a className="focus-ring" href="/rulesets/new" onClick={e => { e.preventDefault(); navigateTo('/rulesets/new') }}><Icon name="plus" className="h-4 w-4" />Crear ruleset</a>
           <a className="focus-ring" href="/tournament/presentation" onClick={e => { e.preventDefault(); navigateTo('/tournament/presentation') }}><Icon name="trophy" className="h-4 w-4" />Presentación del torneo</a>
-        </nav>
+        </nav>}
       </section>
 
       <section

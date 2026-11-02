@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import type { MatchId } from '../types/tournament'
 import { navigateTo } from '../app/navigation'
+import { ScreenControls } from '../components/tournament/ScreenControls'
 import { useTournament } from '../hooks/useTournament'
 import { useWorkspace } from '../hooks/workspaceContext'
 import { getChampion, resolveBracket } from '../utils/doubleElimination'
@@ -41,6 +42,7 @@ export function TournamentAdminPage() {
         <button className="bracket-button" type="button" onClick={exportFile}>Exportar JSON</button>
         <button className="bracket-button" type="button" onClick={() => fileInput.current?.click()}>Importar JSON</button>
         <button className="bracket-button primary" type="button" onClick={() => navigateTo('/tournament/presentation')}>Modo presentación</button>
+        <ScreenControls />
         <input className="sr-only" tabIndex={-1} aria-label="Archivo JSON del torneo" type="file" accept=".json,application/json" ref={fileInput}
           onChange={async (e) => {
             const file = e.target.files?.[0]; e.target.value = ''

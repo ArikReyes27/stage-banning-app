@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { navigateTo } from '../../app/navigation'
 import { Icon } from '../ui/Icon'
+import { isAdminHost } from '../../lib/accessMode'
 
 type AppShellProps = {
   children: ReactNode
@@ -8,10 +9,12 @@ type AppShellProps = {
 }
 
 export function AppShell({ children, showAccount = false }: AppShellProps) {
-  const isPresentation = () => /^\/tournament\/(?:presentation|standings\/presentation|match\/[^/]+\/presentation)\/?$/.test(window.location.pathname)
+  const adminUi = isAdminHost(window.location.hostname)
+  showAccount = showAccount && adminUi
+  const isPresentation = () => /^\/tournament\/(?:presentation|screen|standings\/presentation|match\/[^/]+\/presentation)\/?$/.test(window.location.pathname)
   const [presentation, setPresentation] = useState(isPresentation)
   useEffect(() => {
-    const sync = () => setPresentation(/^\/tournament\/(?:presentation|standings\/presentation|match\/[^/]+\/presentation)\/?$/.test(window.location.pathname))
+    const sync = () => setPresentation(/^\/tournament\/(?:presentation|screen|standings\/presentation|match\/[^/]+\/presentation)\/?$/.test(window.location.pathname))
     window.addEventListener('popstate', sync)
     return () => window.removeEventListener('popstate', sync)
   }, [])
@@ -44,14 +47,14 @@ export function AppShell({ children, showAccount = false }: AppShellProps) {
             <button className="focus-ring touch-target rounded-xl px-3 py-2 text-xs font-bold text-slate-200 hover:bg-white/5 sm:text-sm" onClick={() => navigateTo('/')} type="button">Inicio</button>
             {showAccount && <button className="focus-ring touch-target rounded-xl px-3 py-2 text-xs font-bold text-cyan-200 hover:bg-cyan-300/10 sm:text-sm" onClick={() => navigateTo('/account')} type="button">Cuenta</button>}
             {showAccount && <button className="focus-ring touch-target rounded-xl px-3 py-2 text-xs font-bold text-cyan-200 hover:bg-cyan-300/10 sm:text-sm" onClick={() => navigateTo('/my-tournaments')} type="button">Mis torneos</button>}
-            <button className="focus-ring touch-target rounded-xl px-3 py-2 text-xs font-bold text-cyan-200 sm:text-sm" onClick={() => navigateTo('/registration')} type="button">Registro</button>
-            <button
+            {adminUi && <button className="focus-ring touch-target rounded-xl px-3 py-2 text-xs font-bold text-cyan-200 sm:text-sm" onClick={() => navigateTo('/registration')} type="button">Registro</button>}
+            {adminUi && <button
               className="focus-ring touch-target rounded-xl px-3 py-2 text-xs font-bold text-violet-200 transition hover:bg-violet-300/10 sm:text-sm"
               onClick={() => navigateTo('/tournament')}
               type="button"
             >
               Bracket
-            </button>
+            </button>}
             <button
               className="focus-ring touch-target rounded-xl px-3 py-2 text-xs font-semibold text-slate-300 transition hover:bg-white/5 hover:text-white sm:text-sm"
               onClick={() => navigateTo('/#rulesets')}
@@ -59,7 +62,7 @@ export function AppShell({ children, showAccount = false }: AppShellProps) {
             >
               Rulesets
             </button>
-            <button
+            {adminUi && <button
               aria-label="Crear ruleset"
               className="focus-ring touch-target hidden items-center gap-2 rounded-xl border border-white/8 bg-white/4 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-cyan-300/20 hover:bg-cyan-300/8 hover:text-cyan-200 sm:flex sm:px-4 sm:text-sm"
               onClick={() => navigateTo('/rulesets/new')}
@@ -67,7 +70,7 @@ export function AppShell({ children, showAccount = false }: AppShellProps) {
             >
               <Icon name="plus" className="h-4 w-4" />
               <span className="hidden sm:inline">Crear ruleset</span>
-            </button>
+            </button>}
           </nav>}
         </div>
       </header>}

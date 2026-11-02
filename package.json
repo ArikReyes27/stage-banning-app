@@ -9,7 +9,8 @@
     "dev:auth-tests": "vite --mode auth-tests",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start:event": "vite preview --host --port 4173 --strictPort"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",

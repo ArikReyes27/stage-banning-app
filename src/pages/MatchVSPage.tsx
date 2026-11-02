@@ -11,6 +11,7 @@ import { winnerSlot } from '../utils/tournamentResults'
 import { MatchHistory } from '../components/tournament/MatchHistory'
 import { DQControls } from '../components/tournament/DQControls'
 import { ActiveMatchLink } from '../components/tournament/ActiveMatchLink'
+import { ScreenControls } from '../components/tournament/ScreenControls'
 import '../styles/tournament.css'
 import '../styles/versus.css'
 
@@ -67,6 +68,7 @@ export function MatchVSPage({ matchId, presentation = false }: { matchId: MatchI
         {!presentation && <a className="bracket-button" href={tournamentHref(`/tournament/match/${match.id}/presentation`)} target="_blank" rel="noopener noreferrer">Abrir presentación ↗</a>}
         {!presentation && <button className="bracket-button" onClick={() => setControlsVisible(v => !v)}>{controlsVisible ? 'Ocultar controles' : 'Mostrar controles'}</button>}
         {!presentation && controlsVisible && <ActiveMatchLink tournament={tournament} />}
+        {!presentation && controlsVisible && <ScreenControls matchId={match.id} />}
       </div>
       {admin && controlsVisible && <div className="vs-quick-result">
         {match.result?.confirmed && !match.result.outcome && <button className="bracket-button" onClick={() => setCorrection(v => !v)}>{correction ? 'Volver a consulta' : 'Corregir resultado'}</button>}
