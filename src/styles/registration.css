@@ -1,0 +1,14 @@
+.registration-page .bracket-button { min-height: 44px; }
+.registration-roster { overflow: visible; }
+.registration-toolbar { position: sticky; top: .5rem; z-index: 5; padding: 1rem; margin: -0.25rem -0.25rem 1rem; border: 1px solid #67e8f926; border-radius: 1rem; background: #0b1224; box-shadow: 0 10px 24px #0005; }
+.registration-roster :is(input, button) { scroll-margin-top: 190px; }
+@media (max-width: 480px) { .registration-toolbar { padding: .75rem; top: .25rem; } .registration-toolbar .bracket-button { flex: 1 1 40%; padding: .5rem; font-size: .75rem; } .registration-roster :is(input, button) { scroll-margin-top: 250px; } }
+@media (max-height: 500px) { .registration-toolbar { position: static; } }
+.registration-page :focus-visible { outline: 2px solid #67e8f9; outline-offset: 3px; }
+.registration-page fieldset:disabled { opacity: .65; }
+.registration-notice { padding: 1rem; margin-bottom: 1rem; border: 1px solid #67e8f955; border-radius: 1rem; background: #0891b21a; }
+.registration-list li { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; padding: .8rem 0; border-bottom: 1px solid #ffffff14; }
+.registration-list input[type=checkbox] { width: 24px; height: 24px; accent-color: #22d3ee; }
+.registration-preview li { display: flex; justify-content: space-between; gap: 1rem; overflow-wrap: anywhere; padding: .4rem 0; }
+@media (max-width: 480px) { .registration-list li > span.min-w-0 { flex-basis: 65%; } }
+@media (prefers-reduced-motion: reduce) { .registration-page *, .registration-page *::before { animation: none !important; transition: none !important; } }

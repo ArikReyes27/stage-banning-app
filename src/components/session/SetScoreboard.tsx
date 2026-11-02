@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import type { PlayerId, SetFormat } from '../../hooks/useBanSession'
-import { getFirstTo, getFormatLabel } from '../../utils/sessionFlow'
+import { getFirstTo } from '../../utils/sessionFlow'
 
 type SetScoreboardProps = {
   currentGame: number
@@ -31,17 +31,16 @@ export function SetScoreboard({
           <p className="text-[10px] font-black uppercase tracking-[0.22em] text-cyan-300">
             Marcador del set
           </p>
-          <h2 className="mt-1 text-xl font-black text-white">
-            Game {currentGame}
-          </h2>
+          <h1 className="mt-1 text-xl font-black text-white">
+            Juego {currentGame}
+          </h1>
         </div>
         <div className="flex gap-2">
-          <ScoreBadge label={getFormatLabel(format)} />
-          <ScoreBadge label={`First to ${targetWins}`} />
+          <ScoreBadge label={format} />
         </div>
       </div>
 
-      <div className="mt-5 grid gap-3 lg:grid-cols-2">
+      <div className="mt-4 grid grid-cols-2 gap-3">
         <PlayerScore
           name={player1Name}
           targetWins={targetWins}
@@ -72,7 +71,10 @@ function PlayerScore({
 }) {
   return (
     <div className="rounded-2xl border border-white/8 bg-[#070a16]/65 p-4">
-      <p className="truncate text-sm font-black text-white">{name}</p>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-sm font-black text-white">{name}</p>
+        <span className={`text-3xl font-black tabular-nums ${tone === 'cyan' ? 'text-cyan-200' : 'text-violet-200'}`}>{wins}</span>
+      </div>
       <div className="mt-3 flex gap-2" aria-label={`${wins} games ganados`}>
         {Array.from({ length: targetWins }, (_, index) => {
           const filled = index < wins
@@ -97,7 +99,7 @@ function PlayerScore({
         {wins} de {targetWins} victorias
       </span>
       <p className="mt-2 text-[9px] font-black uppercase tracking-wider text-slate-600">
-        {wins} de {targetWins} games
+        {wins} de {targetWins} victorias
       </p>
     </div>
   )

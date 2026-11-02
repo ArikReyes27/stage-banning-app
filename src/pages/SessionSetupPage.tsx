@@ -5,7 +5,6 @@ import { GameResultPanel } from '../components/session/GameResultPanel'
 import { PlayerSetupPanel } from '../components/session/PlayerSetupPanel'
 import { RpsPanel } from '../components/session/RpsPanel'
 import { SelectedStageSummary } from '../components/session/SelectedStageSummary'
-import { SessionHeader } from '../components/session/SessionHeader'
 import { SessionStageGrid } from '../components/session/SessionStageGrid'
 import { SetCompletePanel } from '../components/session/SetCompletePanel'
 import { SetScoreboard } from '../components/session/SetScoreboard'
@@ -36,8 +35,8 @@ export function SessionSetupPage({ rulesetId }: SessionSetupPageProps) {
 }
 
 function GuidedSession({ ruleset }: { ruleset: Ruleset }) {
-  const [player1Name, setPlayer1Name] = useState('Player 1')
-  const [player2Name, setPlayer2Name] = useState('Player 2')
+  const player1Name = 'Jugador 1'
+  const player2Name = 'Jugador 2'
   const [format, setFormat] = useState<SetFormat>('BO3')
   const session = useBanSession(ruleset, format)
   const starters = ruleset.stages.filter((stage) => stage.type === 'starter')
@@ -52,18 +51,13 @@ function GuidedSession({ ruleset }: { ruleset: Ruleset }) {
     player1Name,
     player2Name,
   )
-  const rpsWinnerName = getPlayerName(
-    session.rpsWinnerId,
-    player1Name,
-    player2Name,
-  )
   const setWinnerName = getPlayerName(
     session.setWinnerId,
     player1Name,
     player2Name,
   )
-  const safePlayer1Name = player1Name.trim() || 'Player 1'
-  const safePlayer2Name = player2Name.trim() || 'Player 2'
+  const safePlayer1Name = player1Name
+  const safePlayer2Name = player2Name
   const setupLocked =
     session.phase !== 'rps' ||
     session.currentGame > 1 ||
@@ -86,7 +80,7 @@ function GuidedSession({ ruleset }: { ruleset: Ruleset }) {
 
   const resetCurrentGame = () => {
     const confirmed = window.confirm(
-      `¿Reiniciar Game ${session.currentGame}? Se perderán los bans y el stage elegido de este game.`,
+      `¿Reiniciar el juego ${session.currentGame}? Se perderán los baneos, el escenario elegido y el cronómetro de este juego.`,
     )
 
     if (confirmed) session.resetCurrentGame()
@@ -127,7 +121,7 @@ function GuidedSession({ ruleset }: { ruleset: Ruleset }) {
   }
 
   return (
-    <main className="mx-auto max-w-7xl px-4 pb-20 pt-8 sm:px-6 lg:px-8">
+    <main className="session-view mx-auto max-w-7xl px-4 pb-20 pt-8 sm:px-6 lg:px-8">
       <BackToRulesetButton rulesetId={ruleset.id} />
 
       <div className="mt-5 space-y-5">
@@ -135,23 +129,8 @@ function GuidedSession({ ruleset }: { ruleset: Ruleset }) {
           <PlayerSetupPanel
             format={format}
             onFormatChange={setFormat}
-            onPlayer1NameChange={setPlayer1Name}
-            onPlayer2NameChange={setPlayer2Name}
-            player1Name={player1Name}
-            player2Name={player2Name}
           />
         )}
-
-        <SessionHeader
-          currentActorName={currentActorName}
-          currentGame={session.currentGame}
-          format={format}
-          phase={session.phase}
-          player1Name={safePlayer1Name}
-          player2Name={safePlayer2Name}
-          rpsWinnerName={rpsWinnerName}
-          rulesetName={ruleset.name}
-        />
 
         <SetScoreboard
           currentGame={session.currentGame}
@@ -171,11 +150,8 @@ function GuidedSession({ ruleset }: { ruleset: Ruleset }) {
 
         <TurnInstructionCard
           actorName={currentActorName}
-          banStep={session.currentBanStepIndex + 1}
-          currentGame={session.currentGame}
           phase={session.phase}
           remainingBans={session.remainingBansInStep}
-          rpsWinnerName={rpsWinnerName}
         />
 
         {showStageBoard && (
@@ -183,8 +159,8 @@ function GuidedSession({ ruleset }: { ruleset: Ruleset }) {
             <SessionStageGrid
               eyebrow={
                 session.phase === 'rps'
-                  ? 'Bloqueados hasta resolver RPS'
-                  : `Disponibles para Game ${session.currentGame}`
+                  ? 'Elige quién inicia para desbloquear'
+                  : 'Escenarios iniciales'
               }
               getState={session.getStageState}
               isStageInteractive={isStageInteractive}
@@ -196,8 +172,8 @@ function GuidedSession({ ruleset }: { ruleset: Ruleset }) {
             <SessionStageGrid
               eyebrow={
                 session.counterpicksUnlocked
-                  ? `Desbloqueados para Game ${session.currentGame}`
-                  : 'Visibles · bloqueados durante Game 1'
+                  ? 'Disponibles'
+                  : 'Bloqueados por el ruleset en este juego'
               }
               getState={session.getStageState}
               isStageInteractive={isStageInteractive}
@@ -232,14 +208,14 @@ function GuidedSession({ ruleset }: { ruleset: Ruleset }) {
         <GameHistory history={session.gameHistory} />
 
         <div className="flex flex-col justify-center gap-3 sm:flex-row">
-          {session.phase !== 'rps' && session.phase !== 'game-result' && (
+          {(session.phase === 'ban' || session.phase === 'pick') && (
             <button
               className="focus-ring flex items-center justify-center gap-2 rounded-xl border border-white/8 bg-white/3 px-4 py-3 text-xs font-black text-slate-400 transition hover:bg-white/6 hover:text-white"
               onClick={resetCurrentGame}
               type="button"
             >
               <Icon name="back" className="h-3.5 w-3.5" />
-              Reiniciar game actual
+              Reiniciar juego actual
             </button>
           )}
           <button

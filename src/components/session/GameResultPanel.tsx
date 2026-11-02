@@ -2,6 +2,7 @@ import type { PlayerId } from '../../hooks/useBanSession'
 import type { Stage } from '../../types/ruleset'
 import { StageThumbnailCard } from '../stages/StageThumbnailCard'
 import { Icon } from '../ui/Icon'
+import { GameTimer } from './GameTimer'
 
 type GameResultPanelProps = {
   currentGame: number
@@ -26,12 +27,10 @@ export function GameResultPanel({
         <StageThumbnailCard accent="emerald" stage={stage} state="selected" />
         <div>
           <p className="text-[10px] font-black uppercase tracking-[0.22em] text-emerald-300">
-            Game {currentGame} en juego
+            Juego {currentGame} en curso
           </p>
           <h2 className="mt-2 text-3xl font-black text-white">{stage.name}</h2>
-          <p className="mt-3 text-sm leading-6 text-slate-400">
-            Juega el game actual. Cuando termine, reporta el ganador.
-          </p>
+          <GameTimer key={currentGame} />
 
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             <WinnerButton
@@ -52,7 +51,7 @@ export function GameResultPanel({
             type="button"
           >
             <Icon name="back" className="h-3.5 w-3.5" />
-            Reiniciar game actual
+            Reiniciar juego actual
           </button>
         </div>
       </div>

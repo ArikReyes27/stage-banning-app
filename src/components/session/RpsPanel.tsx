@@ -23,24 +23,24 @@ export function RpsPanel({
         </span>
         <div>
           <p className="text-[10px] font-black uppercase tracking-[0.22em] text-violet-300">
-            Paso 1
+            Primer juego
           </p>
           <h2 className="mt-1 text-xl font-black text-white" id="rps-title">
-            Piedra, papel o tijera
+            ¿Quién inicia?
           </h2>
           <p className="mt-1 text-xs text-slate-500">
-            ¿Quién ganó? El resultado inicia el striking.
+            Elige quién comienza el baneo.
           </p>
         </div>
       </div>
 
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         <WinnerButton
-          label={`Ganó ${player1Name}`}
+          label={player1Name}
           onClick={() => onWinnerSelect('player1')}
         />
         <WinnerButton
-          label={`Ganó ${player2Name}`}
+          label={player2Name}
           onClick={() => onWinnerSelect('player2')}
         />
       </div>

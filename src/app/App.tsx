@@ -3,7 +3,7 @@ import { AppRoutes } from './routes'
 
 function App() {
   return (
-    <AppShell>
+    <AppShell showAccount={import.meta.env.MODE === 'auth-tests' && import.meta.env.DEV}>
       <AppRoutes />
     </AppShell>
   )

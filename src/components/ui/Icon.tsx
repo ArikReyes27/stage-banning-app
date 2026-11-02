@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react'
 
 export type IconName =
+  | 'users'
+  | 'trophy'
   | 'arrow-right'
   | 'back'
   | 'bolt'
@@ -23,6 +25,8 @@ type IconProps = {
 }
 
 const paths: Record<IconName, ReactNode> = {
+  users: <><circle cx="9" cy="8" r="3" /><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 5a3 3 0 0 1 0 6M18 15a5 5 0 0 1 3 4v2" /></>,
+  trophy: <><path d="M8 3h8v6a4 4 0 0 1-8 0V3ZM8 5H4v2a4 4 0 0 0 4 4M16 5h4v2a4 4 0 0 1-4 4M12 13v5M7 21h10M9 18h6v3" /></>,
   'arrow-right': (
     <>
       <path d="M5 12h14" />

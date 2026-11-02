@@ -21,11 +21,11 @@ export function SelectedStageSummary({
         <StageThumbnailCard accent="emerald" stage={stage} state="selected" />
         <div>
           <p className="text-[10px] font-black uppercase tracking-[0.22em] text-emerald-300">
-            Stage elegido · Game {currentGame}
+            Escenario elegido · Juego {currentGame}
           </p>
           <h2 className="mt-2 text-3xl font-black text-white">{stage.name}</h2>
           <p className="mt-3 text-sm leading-6 text-slate-400">
-            Confirma este stage para comenzar Game {currentGame}.
+            Confirma el escenario del juego {currentGame}.
           </p>
 
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
@@ -35,7 +35,7 @@ export function SelectedStageSummary({
               type="button"
             >
               <Icon name="check" className="h-4 w-4" />
-              Confirmar stage
+              Confirmar escenario
             </button>
             <button
               className="focus-ring flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/4 px-5 py-3.5 text-sm font-black text-slate-300 transition hover:bg-white/8 hover:text-white"
@@ -43,7 +43,7 @@ export function SelectedStageSummary({
               type="button"
             >
               <Icon name="back" className="h-4 w-4" />
-              Reiniciar game
+              Reiniciar juego
             </button>
           </div>
         </div>

@@ -1,0 +1,36 @@
+.standings-page { max-width: 1648px; margin: auto; padding: 2rem 1.5rem; }
+.standings-header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.25rem; margin-bottom: 1.5rem; }
+.standings-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-bottom: 1.25rem; }
+.standings-page :focus-visible { outline: 2px solid #67e8f9; outline-offset: 3px; }
+.standings-page .bracket-button { min-height: 44px; }
+.standings-poster-frame { border-radius: 1.5rem; overflow: hidden; box-shadow: 0 24px 80px #0005; border: 1px solid #a78bfa33; }
+.top-eight-poster { display: block; width: 100%; height: auto; }
+.standings-presentation { padding: 1rem; }
+.standings-table { width: 100%; border-collapse: collapse; font-size: .9rem; table-layout: fixed; }
+.standings-table th, .standings-table td { text-align: left; padding: .85rem; border-bottom: 1px solid #ffffff18; overflow-wrap: anywhere; }
+.standings-table thead { color: #a5f3fc; background: #101a2c; }
+.standings-table th:first-child, .standings-table td:first-child { width: 110px; }
+.standings-table th:last-child, .standings-table td:last-child { width: 160px; }
+.standing-status { display: block; font-size: .7rem; color: #94a3b8; margin-top: .25rem; }
+.standing-characters { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
+.standing-secondary .character-icon { width: 25px; height: 25px; }
+.standing-main .character-icon { border: 1px solid #67e8f966; }
+.standings-mobile-summary { display: none; }
+@media (max-width: 640px) {
+  .standings-page { padding: 1rem .75rem; }
+  .standings-table { font-size: .8rem; }
+  .standings-table th, .standings-table td { padding: .6rem .3rem; }
+  .standings-table th:first-child, .standings-table td:first-child { width: 70px; }
+  .standings-table th:last-child, .standings-table td:last-child { width: 105px; }
+  .standings-mobile-summary { display: grid; gap: .65rem; margin-top: 1rem; }
+  .standings-mobile-summary li { display: grid; grid-template-columns: 75px 1fr; align-items: center; gap: .4rem; padding: .85rem; border-radius: 1rem; background: #111a2c; overflow-wrap: anywhere; }
+  .standings-mobile-summary .standing-characters { grid-column: 2; }
+}
+@media (max-width: 640px) {
+  .standings-mobile-summary li[data-position="1"] { border: 1px solid #fcd34d; box-shadow: 0 0 18px #fcd34d18; color: #fde68a; }
+  .standings-mobile-summary li[data-position="2"] { border: 1px solid #cbd5e1; box-shadow: 0 0 18px #cbd5e118; color: #e2e8f0; }
+  .standings-mobile-summary li[data-position="3"] { border: 1px solid #d6996a; box-shadow: 0 0 18px #d6996a18; color: #d6996a; }
+  .mobile-medal { grid-column: 2; font-size: .8rem; font-weight: 800; }
+  .mobile-podium-render { grid-column: 1; grid-row: 2 / 4; width: 75px; height: 90px; object-fit: contain; }
+}
+.mobile-set-record { grid-column: 2; font-size: .85rem; font-weight: 700; }
